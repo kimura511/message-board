@@ -16,6 +16,10 @@ class MessagesController < ApplicationController
 
   def edit
   end
+  
+  def set_message
+    @message = Message.find(params[:id])
+  end
 
   def update
     if @message.update(message_params)
@@ -29,7 +33,9 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    @message = Message.find(params[:id])
+    params.require(:message).permit(:name, :body)
+    #params.require(@message).permit(:name, :body)
+    #@message = Message.find(params[:id])
   end
   ## ここまで
 end
