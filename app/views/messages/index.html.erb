@@ -5,32 +5,25 @@
     
   <div class="panel-body">
     <% @messages.each do |message| %>
-      <span class="label label-info"><%= message.name %></span>
+      <span class="label label-info"><i class="glyphicon glyphicon-user"></i><%= message.name %></span>
       <%= message.body %>
       <br>
     <% end %>
   </div>
 </div>
 
-<%= form_for(@message) do |f| %>
-  <% if @message.errors.present? %>
-    <div class="alert alert-danger">
-      <%= alert %>
-      <ul>
-        <% @message.errors.full_messages.each do |full_message| %>
-          <li>
-            <%= full_message %>
-          </li>
-        <% end %> 
-      </ul>
-    </div>
-  <% end %>
-
-  名前:
+<%= form_for(Message.new) do |f| %>
+<div class="col-xs-8 col-xs-offset-2 text-center">
+<div class="col-xs-12 col-sm-12 col-md-12 text-left">
+  <i class="glyphicon glyphicon-user"></i> :
   <%= f.text_field :name %>
-
-  内容:
-  <%= f.text_field :body %>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 text-left">
+  <i class="glyphicon glyphicon-list-alt"></i>:<br>
+  <%= f.text_area :body, class: "span7", rows: 10,cols: 100 %>
+</div>
+<div class="col-xs-12 col-sm-12 ol-md-12">
   <%= f.submit class: "btn btn-sm btn-primary" %>
+</div>  
 <% end %>
-
+</div>
