@@ -43,3 +43,11 @@ group :development, :test do
   gem 'spring'
 end
 
+#開発モードでは、sqlite3を使用する。
+gem 'sqlite3', group: :development
+
+#しかし、プロダクションモード(本番)では、
+#Heroku環境となるため、PostgreSQLを使用する
+#必要がある。
+
+gem 'pg', group: :production
