@@ -50,4 +50,4 @@ gem 'sqlite3', group: :development
 #Heroku環境となるため、PostgreSQLを使用する
 #必要がある。
 
-gem 'pg', group: :production
+#gem 'pg', group: :production
